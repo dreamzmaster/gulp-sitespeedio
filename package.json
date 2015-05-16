@@ -1,0 +1,31 @@
+{
+	"name": "gulp-sitespeedio",
+	"repository": "https://github.com/DigitalInnovation/gulp-sitespeedio",
+	"version": "0.0.1",
+	"keywords": [
+		"performance",
+		"web",
+		"budget",
+		"webperf",
+		"perfmatters",
+		"perfbudget",
+		"browser",
+		"gulpplugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/sitespeedio/gulp-sitespeedio.git"
+	},
+	"engines": {
+		"node": ">= 0.10.7"
+	},
+	"dependencies": {
+		"sitespeed.io": "3.5.0"
+	},
+	"devDependencies": {
+        "gulp-util": "^3.0.4",
+		"gulp": "~3.8.11",
+		"object-assign": "~2.0.0",
+        "temporary": "0.0.8"
+	}
+}
