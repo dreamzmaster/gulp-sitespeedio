@@ -3,7 +3,7 @@
   "description": "Analyze the web performance of your site using Gulp",
   "repository": {
     "type": "git",
-    "url": "git://github.com/sitespeedio/gulp-sitespeedio.git"
+    "url": "git://github.com/dreamzmaster/gulp-sitespeedio.git"
   },
   "version": "0.0.2",
   "keywords": [
@@ -30,9 +30,9 @@
     "gulp": "~3.8.11"
   },
   "bugs": {
-    "url": "https://github.com/sitespeedio/gulp-sitespeedio/issues"
+    "url": "https://github.com/dreamzmaster/gulp-sitespeedio/issues"
   },
-  "homepage": "https://github.com/sitespeedio/gulp-sitespeedio",
+  "homepage": "https://github.com/dreamzmaster/gulp-sitespeedio",
   "main": "./tasks/sitespeed.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
