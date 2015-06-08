@@ -15,15 +15,14 @@ var gulp = require('gulp'),
 	tmp = require('temporary'),
 	PluginError = gutil.PluginError;
 
-
 var PLUGIN_NAME = 'gulp-sitespeedio';
 
 var gulpSitespeedio = function(options) {
 
-	console.log('Analyze your sites web performance');
+	gutil.log('Analyze your sites web performance');
 
-	if (!options.url) {
-		throw new PluginError('gulp-sitespeedio', 'Missing url option to Analyse');
+	if (!options.url && !options.urls) {
+		throw new PluginError(PLUGIN_NAME, 'Missing url option to Analyse');
 	}
 
 	var dir = new tmp.Dir(),
@@ -52,14 +51,14 @@ var gulpSitespeedio = function(options) {
 		sitespeed.run(options, function(err, data) {
 
 			if (err) {
-				cb(new gutil.PluginError('gulp-sitespeedio', err + '\n\n'));
+				cb(new gutil.PluginError(PLUGIN_NAME, err + '\n\n'));
 				
 			} else if (data && data.budget) {
 
 				var isFailing = budget.checkBudget(data, gutil, config);
 
                 if( isFailing ) {
-                    cb(new gutil.PluginError('gulp-sitespeedio', 'FAILED BUDGETS'));   
+                    cb(new gutil.PluginError(PLUGIN_NAME, 'FAILED BUDGETS'));   
                 }
 
 			} else {
