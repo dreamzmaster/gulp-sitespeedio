@@ -59,7 +59,9 @@ var gulpSitespeedio = function(options) {
 
                 if( isFailing ) {
                     cb(new gutil.PluginError(PLUGIN_NAME, 'FAILED BUDGETS'));   
-                }
+                } else {
+					cb();
+				}
 
 			} else {
                 cb();
