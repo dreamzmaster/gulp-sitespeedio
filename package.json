@@ -5,7 +5,7 @@
     "type": "git",
     "url": "git://github.com/dreamzmaster/gulp-sitespeedio.git"
   },
-  "version": "0.0.5",
+  "version": "0.0.6",
   "keywords": [
     "performance",
     "web",
@@ -26,7 +26,7 @@
     "temporary": "0.0.8"
   },
   "devDependencies": {
-    "gulp-sitespeedio": "^0.0.5",
+    "gulp-sitespeedio": "^0.0.6",
     "gulp": "~3.8.11"
   },
   "bugs": {

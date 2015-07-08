@@ -43,8 +43,7 @@ var gulpSitespeedio = function(options) {
 	}
 
 	return function(cb) {
-
-
+		
 		var sitespeed = new Sitespeed(),
 			build = this;
 
@@ -57,12 +56,11 @@ var gulpSitespeedio = function(options) {
 
 				var isFailing = budget.checkBudget(data, gutil, config);
 
-                if( isFailing ) {
+                if(isFailing) {
                     cb(new gutil.PluginError(PLUGIN_NAME, 'FAILED BUDGETS'));   
                 } else {
-					cb();
-				}
-
+                	cb();
+                }
 			} else {
                 cb();
             }
