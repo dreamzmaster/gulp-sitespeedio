@@ -19,8 +19,6 @@ var PLUGIN_NAME = 'gulp-sitespeedio';
 
 var gulpSitespeedio = function(options) {
 
-	gutil.log('Analyze your sites web performance');
-
 	if (!options.url && !options.urls) {
 		throw new PluginError(PLUGIN_NAME, 'Missing url option to Analyse');
 	}
@@ -43,6 +41,8 @@ var gulpSitespeedio = function(options) {
 	}
 
 	return function(cb) {
+
+		gutil.log('Analyze your site’s web performance');
 		
 		var sitespeed = new Sitespeed(),
 			build = this;
@@ -51,13 +51,13 @@ var gulpSitespeedio = function(options) {
 
 			if (err) {
 				cb(new gutil.PluginError(PLUGIN_NAME, err + '\n\n'));
-				
+
 			} else if (data && data.budget) {
 
 				var isFailing = budget.checkBudget(data, gutil, config);
 
                 if(isFailing) {
-                    cb(new gutil.PluginError(PLUGIN_NAME, 'FAILED BUDGETS'));   
+                    cb(new gutil.PluginError(PLUGIN_NAME, 'FAILED BUDGETS'));
                 } else {
                 	cb();
                 }
@@ -80,7 +80,7 @@ function readFile(options) {
 	urls = urls.filter(function(l) {
 		return l.length > 0;
 	});
-    
+
 	// we clean the file in the config to make
 	// it look that we are feeding with URL array
 	options.urls = urls;
