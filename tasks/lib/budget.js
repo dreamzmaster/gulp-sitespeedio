@@ -1,11 +1,6 @@
-/**
- * gulp-sitespeedio
- * Released under the Apache 2.0 License
- */
 'use strict';
 
-exports.checkBudget = function(data, gutil, config) {
-
+exports.checkBudget = function (data, gutil, config) {
 	// lets get the budget!
 	gutil.log(gutil.colors.blue('------------------------------------------------- Check budget'));
 
@@ -21,7 +16,7 @@ exports.checkBudget = function(data, gutil, config) {
 
 	gutil.log(gutil.colors.cyan('the showFailedOnly is:' + showFailedOnly));
 
-	data.budget.forEach(function(result) {
+	data.budget.forEach(function (result) {
 		if (result.skipped) {
 			noSkippedTests++;
 			if (!showFailedOnly)
