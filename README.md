@@ -45,6 +45,16 @@ With these configuration properties set, you can add `sitespeedio` to your defau
 
     gulp.task('default', ['jshint', 'sitespeedio']);
 
+If you run it with custom options you need to run like this:
+
+    gulp.task('default', function (done) {
+      sitespeedio({
+        url: "http://localhost:3000/",
+        depth: 2,
+      })(done)
+    });
+
+
 With this in place, gulp-sitespeedio will now collect performance metrics for your site.
 
 ## The result files
