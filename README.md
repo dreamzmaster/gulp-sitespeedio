@@ -99,17 +99,14 @@ Checkout the [example Gruntfile]() and budget looks something like this:
 budget: {
   "browsertime.pageSummary": [{
     "metric": "statistics.timings.firstPaint.median",
-    "max": 1000,
-    "unit": "ms"
+    "max": 1000
   }, {
     "metric": "statistics.visualMetrics.FirstVisualChange.median",
-    "max": 1000,
-    "unit": "ms"
+    "max": 1000
   }],
   "coach.pageSummary": [{
     "metric": "advice.performance.score",
-    "min": 75,
-    "unit": "percentage"
+    "min": 75
   }, {
     "metric": "advice.info.domElements",
     "max": 200
@@ -125,8 +122,7 @@ budget: {
   }],
   "pagexray.pageSummary": [{
     "metric": "transferSize",
-    "max": 100000,
-    "unit": "bytes"
+    "max": 100000
   }, {
     "metric": "requests",
     "max": 20
@@ -138,8 +134,7 @@ budget: {
     "max": 1
   }, {
     "metric": "contentTypes.image.transferSize",
-    "max": 100000,
-    "unit": "bytes"
+    "max": 100000
   }, {
     "metric": "documentRedirects",
     "max": 0
