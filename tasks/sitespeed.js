@@ -1,8 +1,3 @@
-/*
- * gulp-sitespeedio
- * Released under the Apache 2.0 License
- */
-
 'use strict';
 
 var gulp = require('gulp'),
@@ -17,7 +12,7 @@ var gulp = require('gulp'),
 
 var PLUGIN_NAME = 'gulp-sitespeedio';
 
-var gulpSitespeedio = function(options) {
+var gulpSitespeedio = function (options) {
 
 	if (!options.url && !options.urls) {
 		throw new PluginError(PLUGIN_NAME, 'Missing url option to Analyse');
@@ -27,7 +22,7 @@ var gulpSitespeedio = function(options) {
 		config = {
 			resultBaseDir: dir.path,
 			html: true,
-            showFailedOnly: false
+			showFailedOnly: false
 		};
 
 	assign(config, options);
@@ -40,14 +35,15 @@ var gulpSitespeedio = function(options) {
 		readFile(config);
 	}
 
-	return function(cb) {
+	return function (cb) {
 
 		gutil.log('Analyze your site’s web performance');
-		
-		var sitespeed = new Sitespeed(),
-			build = this;
 
-		sitespeed.run(options, function(err, data) {
+		//sitespeed = new Sitespeed(),
+		var build = this;
+		console.log(options.urls);
+
+		Sitespeed.run(options, function (err, data) {
 
 			if (err) {
 				cb(new gutil.PluginError(PLUGIN_NAME, err + '\n\n'));
@@ -56,14 +52,14 @@ var gulpSitespeedio = function(options) {
 
 				var isFailing = budget.checkBudget(data, gutil, config);
 
-                if(isFailing) {
-                    cb(new gutil.PluginError(PLUGIN_NAME, 'FAILED BUDGETS'));
-                } else {
-                	cb();
-                }
+				if (isFailing) {
+					cb(new gutil.PluginError(PLUGIN_NAME, 'FAILED BUDGETS'));
+				} else {
+					cb();
+				}
 			} else {
-                cb();
-            }
+				cb();
+			}
 		});
 	}
 
@@ -77,7 +73,7 @@ function readFile(options) {
 
 	var data = fs.readFileSync(fullPathToFile);
 	var urls = data.toString().split(EOL);
-	urls = urls.filter(function(l) {
+	urls = urls.filter(function (l) {
 		return l.length > 0;
 	});
 

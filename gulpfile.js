@@ -3,19 +3,15 @@
  */
 'use strict';
 
-var gulp 		= require('gulp'),
+var gulp = require('gulp'),
 	sitespeedio = require('./tasks/sitespeed.js');
 
 gulp.task('build', sitespeedio({
-	url: 'http://127.0.0.1',
+	urls: ['https://www.sitespeed.io', 'https://www.sitespeed.io/faq/'],
+	browser: 'firefox',
 	depth: 0,
-	budget: {
-		page: {
-            image: 10,
-            css: 1,
-            requests: 7,
-            pageWeight:300000,
-            jsWeight: 0
-        }
+	browsertime: {
+		connectivity: 'cable',
+		iterations: 5,
 	}
 }));

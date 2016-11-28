@@ -1,11 +1,12 @@
 {
   "name": "gulp-sitespeedio",
   "description": "Analyze the web performance of your site using Gulp",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/dreamzmaster/gulp-sitespeedio.git"
+  "version": "1.0.0",
+  "homepage": "https://github.com/dreamzmaster/gulp-sitespeedio",
+  "author": {
+    "name": "Ankit Singhal",
+    "email": "singhal.ankit@hotmail.com"
   },
-  "version": "0.0.8",
   "keywords": [
     "performance",
     "web",
@@ -16,26 +17,29 @@
     "browser",
     "gulpplugin"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dreamzmaster/gulp-sitespeedio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dreamzmaster/gulp-sitespeedio/issues"
+  },
   "engines": {
-    "node": ">= 0.10.7"
+    "node": ">= 4.6.0"
   },
   "dependencies": {
     "gulp-util": "^3.0.4",
     "object-assign": "~2.0.0",
-    "sitespeed.io": "^3.11.1",
+    "lodash.merge": "4.6.0",
+    "sitespeed.io": "4.0.7",
     "temporary": "0.0.8"
   },
   "devDependencies": {
     "gulp": "~3.8.11"
   },
-  "bugs": {
-    "url": "https://github.com/dreamzmaster/gulp-sitespeedio/issues"
-  },
-  "homepage": "https://github.com/dreamzmaster/gulp-sitespeedio",
   "main": "./tasks/sitespeed.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ankit Singhal",
   "license": "Apache 2.0"
 }
