@@ -39,9 +39,8 @@ var gulpSitespeedio = function (options) {
 
 		gutil.log('Analyze your site’s web performance');
 
-		//sitespeed = new Sitespeed(),
 		var build = this;
-		console.log(options.urls);
+		gutil.log(options);
 
 		Sitespeed.run(options, function (err, data) {
 

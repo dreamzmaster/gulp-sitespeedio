@@ -24,13 +24,15 @@ var sitespeedio = require('gulp-sitespeedio');
 
 ### Required configuration properties
 
-To start testing pages, you must configure either a start URL for your crawl (yep sitespeed.io will crawl your site for a configurable depth) or an array of specific URL:s that you want to test.
+To start testing pages, you must configure either a start URL for your crawl (yep sitespeed.io will crawl your site for a configurable depth) or an array of specific URL's that you want to test.
 
-Crawl the site with deepth 1.
+Crawl the site with depth 1.
 ```javascript
 {
-	urls: ['http://localhost/'],
-	deepth: 1
+  urls: ['http://localhost/'],
+  crawler : {
+    depth : 1
+  },
 }
 ```
 
@@ -59,7 +61,7 @@ gulp.task('default', function (done) {
 With this in place, gulp-sitespeedio will now collect performance metrics for your site.
 
 ## The result files
-The result files will automatically be stored in a temporary directory. If you want to change that, use 
+The result files will automatically be stored in a temporary directory. If you want to change that, use
 the *resultBaseDir* property, like this:
 
 ```javascript
@@ -77,7 +79,7 @@ Fetch timings, sending performance metrics to Graphite and performance budgets.
 
 You can choose to collect Navigation Timing and User Timing metrics using real browser. You can choose by using Firefox or Chrome. And you can configure the connection speed ([more info](http://www.sitespeed.io/documentation/#connectionspeed) by choosing between mobile3g, mobile3gfast, cable and native. And choose how many times you want to test each URL (default is 3).
 
-You surely want to combine it with running [Xvfb](https://gist.github.com/nwinkler/f0928740e7ae0e7477dd) to avoid opening the browser. 
+You surely want to combine it with running [Xvfb](https://gist.github.com/nwinkler/f0928740e7ae0e7477dd) to avoid opening the browser.
 
 ```javascript
 {
@@ -155,7 +157,7 @@ If you want to include/exclude tests in the output, you can switch that by a gul
 
 ### Can't find the configuration
 
-ssitespeed.io is highly configurable. The gulp-sitespeedio plugin will pass every option to sitespeed, you can see each and every configuration [here](). Each option needs to be called with full name (meaning the same as using **--** for the cli. Say for example that don't need the screenshot for each. Using the cli, you add the flag <code>--browsertime.screenshot false</code>
+sitespeed.io is highly configurable. The gulp-sitespeedio plugin will pass every option to sitespeed, you can see each and every configuration [here](). Each option needs to be called with full name (meaning the same as using **--** for the cli. Say for example that don't need the screenshot for each. Using the cli, you add the flag <code>--browsertime.screenshot false</code>
 
 Doing the same with the gulp plugin:
 ```javascript
