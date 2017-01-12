@@ -59,7 +59,7 @@ gulp.task('default', function (done) {
 With this in place, gulp-sitespeedio will now collect performance metrics for your site.
 
 ## The result files
-The result files will automatically be stored in a temporary directory. If you want to change that, use 
+The result files will automatically be stored in a temporary directory. If you want to change that, use
 the *resultBaseDir* property, like this:
 
 ```javascript
@@ -77,7 +77,7 @@ Fetch timings, sending performance metrics to Graphite and performance budgets.
 
 You can choose to collect Navigation Timing and User Timing metrics using real browser. You can choose by using Firefox or Chrome. And you can configure the connection speed ([more info](http://www.sitespeed.io/documentation/#connectionspeed) by choosing between mobile3g, mobile3gfast, cable and native. And choose how many times you want to test each URL (default is 3).
 
-You surely want to combine it with running [Xvfb](https://gist.github.com/nwinkler/f0928740e7ae0e7477dd) to avoid opening the browser. 
+You surely want to combine it with running [Xvfb](https://gist.github.com/nwinkler/f0928740e7ae0e7477dd) to avoid opening the browser.
 
 ```javascript
 {
@@ -166,3 +166,7 @@ Doing the same with the gulp plugin:
     }
 }
 ```
+
+### CLI options
+
+You can use `--txtPath` to pass the txt filename and pass the urls instead adding in the gulp process. By default the file it's inside tasks/data/urls.txt but you can as many txts file you want.
