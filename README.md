@@ -24,13 +24,15 @@ var sitespeedio = require('gulp-sitespeedio');
 
 ### Required configuration properties
 
-To start testing pages, you must configure either a start URL for your crawl (yep sitespeed.io will crawl your site for a configurable depth) or an array of specific URL:s that you want to test.
+To start testing pages, you must configure either a start URL for your crawl (yep sitespeed.io will crawl your site for a configurable depth) or an array of specific URL's that you want to test.
 
-Crawl the site with deepth 1.
+Crawl the site with depth 1.
 ```javascript
 {
-	urls: ['http://localhost/'],
-	deepth: 1
+  urls: ['http://localhost/'],
+  crawler : {
+    depth : 1
+  },
 }
 ```
 
@@ -155,7 +157,7 @@ If you want to include/exclude tests in the output, you can switch that by a gul
 
 ### Can't find the configuration
 
-ssitespeed.io is highly configurable. The gulp-sitespeedio plugin will pass every option to sitespeed, you can see each and every configuration [here](). Each option needs to be called with full name (meaning the same as using **--** for the cli. Say for example that don't need the screenshot for each. Using the cli, you add the flag <code>--browsertime.screenshot false</code>
+sitespeed.io is highly configurable. The gulp-sitespeedio plugin will pass every option to sitespeed, you can see each and every configuration [here](). Each option needs to be called with full name (meaning the same as using **--** for the cli. Say for example that don't need the screenshot for each. Using the cli, you add the flag <code>--browsertime.screenshot false</code>
 
 Doing the same with the gulp plugin:
 ```javascript
