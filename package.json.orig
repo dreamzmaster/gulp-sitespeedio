@@ -35,7 +35,15 @@
     "temporary": "0.0.8"
   },
   "devDependencies": {
+<<<<<<< HEAD
+    "gulp": "~3.8.11",
+    "yargs": "^6.4.0",
+    "through2": "^2.0.3",
+    "run-sequence": "^1.2.2",
+    "stream-end": "^0.1.0"
+=======
     "gulp": "~3.9.1"
+>>>>>>> master
   },
   "main": "./tasks/sitespeed.js",
   "scripts": {
