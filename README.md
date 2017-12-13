@@ -85,9 +85,9 @@ You surely want to combine it with running [Xvfb](https://gist.github.com/nwinkl
 {
 	urls: ['https://www.sitespeed.io', 'https://www.sitespeed.io/faq/'],
   browsertime: {
-    browser: 'firefox'
-   	connectivity: 'cable',
-  	iterations: 5,
+    browser: 'firefox',
+    connectivity: 'cable',
+    iterations: 5,
   }
 }
 ```
