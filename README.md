@@ -2,9 +2,9 @@
 
 ## Test your website using sitespeed.io
 
-gulp-sitespeedio is a [gulp.js](https://github.com/gulpjs/gulp) task for testing your site against web performance best practice rules, fetch timings from a browser, test and enforce [performance budgets](#performance-budget), send performance metrics to [Graphite](http://graphite.wikidot.com/) using [sitespeed.io](http://www.sitespeed.io).
+gulp-sitespeedio is a [gulp.js](https://github.com/gulpjs/gulp) task for testing your site against web performance best practice rules, fetch timings from a browser, test and enforce [performance budgets](#performance-budget), send performance metrics to [Graphite](http://graphite.wikidot.com/) using [sitespeed.io](https://www.sitespeed.io).
 
-Check out the [documentation](http://www.sitespeed.io/documentation/) to get a full overview of what you can do and test using [sitespeed.io](http://www.sitespeed.io).
+Check out the [documentation](https://www.sitespeed.io/documentation/) to get a full overview of what you can do and test using [sitespeed.io](https://www.sitespeed.io).
 
 ## Getting Started
 
@@ -30,16 +30,13 @@ Crawl the site with depth 1.
 ```javascript
 {
   urls: ['http://localhost/'],
-  crawler : {
-    depth : 1
-  },
 }
 ```
 
 ### Testing specific URLs
 ```javascript
 {
-	urls: ['http://www.sitespeed.io', 'http://www.sitespeed.io/faq/']
+	urls: ['https://www.sitespeed.io', 'https://www.sitespeed.io/faq/']
 }
 ```
 
@@ -53,7 +50,6 @@ If you run it with custom options you need to run like this:
 gulp.task('default', function (done) {
   sitespeedio({
     urls: ["http://localhost:3000/"],
-    depth: 2,
   })(done)
 });
 ```
@@ -67,7 +63,7 @@ the *resultBaseDir* property, like this:
 ```javascript
 
 {
-	url: 'http://www.sitespeed.io',
+	url: 'https://www.sitespeed.io',
 	outputFolder: '/my/new/dir/'
 }
 ```
@@ -77,7 +73,7 @@ Fetch timings, sending performance metrics to Graphite and performance budgets.
 
 ### Fetching timing metrics
 
-You can choose to collect Navigation Timing and User Timing metrics using real browser. You can choose by using Firefox or Chrome. And you can configure the connection speed ([more info](http://www.sitespeed.io/documentation/#connectionspeed) by choosing between mobile3g, mobile3gfast, cable and native. And choose how many times you want to test each URL (default is 3).
+You can choose to collect Navigation Timing and User Timing metrics using real browser. You can choose by using Firefox or Chrome. And you can configure the connection speed ([more info](https://www.sitespeed.io/documentation/#connectionspeed) by choosing between mobile3g, mobile3gfast, cable and native. And choose how many times you want to test each URL (default is 3).
 
 You surely want to combine it with running [Xvfb](https://gist.github.com/nwinkler/f0928740e7ae0e7477dd) to avoid opening the browser.
 
@@ -149,7 +145,7 @@ If you want to include/exclude tests in the output, you can switch that by a gul
 ```
 
 {
-  urls: ['http://www.sitespeed.io', 'http://www.sitespeed.io/faq/'],
+  urls: ['https://www.sitespeed.io', 'https://www.sitespeed.io/faq/'],
   showFailedOnly: true // or false
 }
 ```
@@ -162,7 +158,7 @@ sitespeed.io is highly configurable. The gulp-sitespeedio plugin will pass every
 Doing the same with the gulp plugin:
 ```javascript
 {
-	url: 'http://www.sitespeed.io',
+	url: 'https://www.sitespeed.io',
 	browsertime: {
         screenshot: false
     }

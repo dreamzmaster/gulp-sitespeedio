@@ -35,11 +35,16 @@
     "temporary": "0.0.8"
   },
   "devDependencies": {
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb-base": "^7.2.0",
+    "eslint-plugin-import": "^2.8.0",
     "gulp": "~3.9.1"
   },
   "main": "./tasks/sitespeed.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npm run eslint",
+    "eslint": "eslint .",
+    "travis": "npm run lint"
   },
   "license": "MIT"
 }
