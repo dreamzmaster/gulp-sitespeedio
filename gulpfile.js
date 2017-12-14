@@ -4,16 +4,16 @@
 'use strict';
 
 var gulp = require('gulp'),
-	sitespeedio = require('./tasks/sitespeed.js');
+  sitespeedio = require('./tasks/sitespeed.js');
 
 gulp.task('build', sitespeedio({
-	urls: ['https://www.sitespeed.io', 'https://www.sitespeed.io/faq/'],
-	depth: 0,
-	browsertime: {
+  urls: ['https://www.sitespeed.io', 'https://www.sitespeed.io/faq/'],
+  depth: 0,
+  browsertime: {
     browser: 'chrome',
-		connectivity: {
+    connectivity: {
       profile: 'cable'
     },
-		iterations: 1,
-	}
+    iterations: 1,
+  }
 }));
