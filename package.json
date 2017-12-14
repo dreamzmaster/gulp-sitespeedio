@@ -28,18 +28,24 @@
     "node": ">= 4.6.0"
   },
   "dependencies": {
+    "gulp": "~3.9.1",
     "gulp-util": "^3.0.4",
     "object-assign": "~2.0.0",
     "lodash.merge": "4.6.0",
-    "sitespeed.io": "5.4.0",
+    "sitespeed.io": "6.1.2",
     "temporary": "0.0.8"
   },
   "devDependencies": {
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb-base": "^7.2.0",
+    "eslint-plugin-import": "^2.8.0",
     "gulp": "~3.9.1"
   },
   "main": "./tasks/sitespeed.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npm run eslint",
+    "eslint": "eslint .",
+    "travis": "npm run lint"
   },
   "license": "MIT"
 }
