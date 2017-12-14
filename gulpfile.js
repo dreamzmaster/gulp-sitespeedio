@@ -8,10 +8,12 @@ var gulp = require('gulp'),
 
 gulp.task('build', sitespeedio({
 	urls: ['https://www.sitespeed.io', 'https://www.sitespeed.io/faq/'],
-	browser: 'firefox',
 	depth: 0,
 	browsertime: {
-		connectivity: 'cable',
-		iterations: 5,
+    browser: 'chrome',
+		connectivity: {
+      profile: 'cable'
+    },
+		iterations: 1,
 	}
 }));

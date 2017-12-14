@@ -31,7 +31,7 @@
     "gulp-util": "^3.0.4",
     "object-assign": "~2.0.0",
     "lodash.merge": "4.6.0",
-    "sitespeed.io": "5.4.0",
+    "sitespeed.io": "6.1.2",
     "temporary": "0.0.8"
   },
   "devDependencies": {
