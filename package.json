@@ -28,6 +28,7 @@
     "node": ">= 4.6.0"
   },
   "dependencies": {
+    "gulp": "~3.9.1",
     "gulp-util": "^3.0.4",
     "object-assign": "~2.0.0",
     "lodash.merge": "4.6.0",

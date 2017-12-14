@@ -3,8 +3,8 @@
  */
 'use strict';
 
-var gulp = require('gulp'),
-  sitespeedio = require('./tasks/sitespeed.js');
+const gulp = require('gulp');
+const sitespeedio = require('./tasks/sitespeed.js');
 
 gulp.task('build', sitespeedio({
   urls: ['https://www.sitespeed.io', 'https://www.sitespeed.io/faq/'],

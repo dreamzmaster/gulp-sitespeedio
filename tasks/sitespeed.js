@@ -1,85 +1,74 @@
 'use strict';
 
-var gulp = require('gulp'),
-	Sitespeed = require('sitespeed.io/lib/sitespeed'),
-	fs = require('fs'),
-	path = require('path'),
-	gutil = require('gulp-util'),
-	budget = require('./lib/budget'),
-	assign = require('object-assign'),
-	tmp = require('temporary'),
-	PluginError = gutil.PluginError;
+const Sitespeed = require('sitespeed.io/lib/sitespeed');
+const fs = require('fs');
+const path = require('path');
+const gutil = require('gulp-util');
+const budget = require('./lib/budget');
+const assign = require('object-assign');
+const tmp = require('temporary');
 
-var PLUGIN_NAME = 'gulp-sitespeedio';
+const PluginError = gutil.PluginError;
 
-var gulpSitespeedio = function (options) {
+const PLUGIN_NAME = 'gulp-sitespeedio';
 
-	if (!options.url && !options.urls) {
-		throw new PluginError(PLUGIN_NAME, 'Missing url option to Analyse');
-	}
+const readFile = (options) => {
+  // absoulute or relative
+  const joinedPath = path.join(process.cwd(), path.sep, options.file);
+  const fullPathToFile = (options.file.charAt(0) === path.sep) ? options.file : joinedPath;
 
-	var dir = new tmp.Dir(),
-		config = {
-			resultBaseDir: dir.path,
-			html: true,
-			showFailedOnly: false
-		};
+  const data = fs.readFileSync(fullPathToFile);
+  let urls = data.toString().split('\n');
+  urls = urls.filter(l => l.length > 0);
 
-	assign(config, options);
-
-	// special handling for reading file with urls
-	// in sitespeed.io we read the file within the cli,
-	// so we need to do it from outside when we run without the
-	// cli
-	if (config.file) {
-		readFile(config);
-	}
-
-	return function (cb) {
-
-		gutil.log('Analyze your site’s web performance');
-
-		var build = this;
-		gutil.log(options);
-
-		Sitespeed.run(options, function (err, data) {
-
-			if (err) {
-				cb(new gutil.PluginError(PLUGIN_NAME, err + '\n\n'));
-
-			} else if (data && data.budget) {
-
-				var isFailing = budget.checkBudget(data, gutil, config);
-
-				if (isFailing) {
-					cb(new gutil.PluginError(PLUGIN_NAME, 'FAILED BUDGETS'));
-				} else {
-					cb();
-				}
-			} else {
-				cb();
-			}
-		});
-	}
-
+  // we clean the file in the config to make
+  // it look that we are feeding with URL array
+  options.urls = urls;
+  options.file = undefined;
 };
 
-function readFile(options) {
+const gulpSitespeedio = (options) => {
+  if (!options.url && !options.urls) {
+    throw new PluginError(PLUGIN_NAME, 'Missing url option to Analyse');
+  }
 
-	// absoulute or relative
-	var fullPathToFile = (options.file.charAt(0) === path.sep) ? options.file : path.join(process.cwd(),
-		path.sep, options.file);
+  const dir = new tmp.Dir();
+  const config = {
+    resultBaseDir: dir.path,
+    html: true,
+    showFailedOnly: false
+  };
 
-	var data = fs.readFileSync(fullPathToFile);
-	var urls = data.toString().split(EOL);
-	urls = urls.filter(function (l) {
-		return l.length > 0;
-	});
+  assign(config, options);
 
-	// we clean the file in the config to make
-	// it look that we are feeding with URL array
-	options.urls = urls;
-	options.file = undefined;
-}
+  // special handling for reading file with urls
+  // in sitespeed.io we read the file within the cli,
+  // so we need to do it from outside when we run without the
+  // cli
+  if (config.file) {
+    readFile(config);
+  }
+
+  return (cb) => {
+    gutil.log('Analyze your site’s web performance');
+    gutil.log(options);
+
+    Sitespeed.run(options, (err, data) => {
+      if (err) {
+        cb(new gutil.PluginError(PLUGIN_NAME, err + '\n\n'));
+      } else if (data && data.budget) {
+        const isFailing = budget.checkBudget(data, gutil, config);
+
+        if (isFailing) {
+          cb(new gutil.PluginError(PLUGIN_NAME, 'FAILED BUDGETS'));
+        } else {
+          cb();
+        }
+      } else {
+        cb();
+      }
+    });
+  };
+};
 
 module.exports = gulpSitespeedio;
