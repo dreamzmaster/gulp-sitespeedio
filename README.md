@@ -36,7 +36,7 @@ Crawl the site with depth 1.
 ### Testing specific URLs
 ```javascript
 {
-	urls: ['https://www.sitespeed.io', 'https://www.sitespeed.io/faq/']
+  urls: ['https://www.sitespeed.io', 'https://www.sitespeed.io/faq/']
 }
 ```
 
@@ -63,8 +63,8 @@ the *resultBaseDir* property, like this:
 ```javascript
 
 {
-	url: 'https://www.sitespeed.io',
-	outputFolder: '/my/new/dir/'
+  url: 'https://www.sitespeed.io',
+  outputFolder: '/my/new/dir/'
 }
 ```
 
@@ -79,11 +79,11 @@ You surely want to combine it with running [Xvfb](https://gist.github.com/nwinkl
 
 ```javascript
 {
-	urls: ['https://www.sitespeed.io', 'https://www.sitespeed.io/faq/'],
+  urls: ['https://www.sitespeed.io', 'https://www.sitespeed.io/faq/'],
   browsertime: {
     browser: 'firefox'
-   	connectivity: 'cable',
-  	iterations: 5,
+    connectivity: 'cable',
+    iterations: 5,
   }
 }
 ```
@@ -158,8 +158,8 @@ sitespeed.io is highly configurable. The gulp-sitespeedio plugin will pass every
 Doing the same with the gulp plugin:
 ```javascript
 {
-	url: 'https://www.sitespeed.io',
-	browsertime: {
+  url: 'https://www.sitespeed.io',
+  browsertime: {
         screenshot: false
     }
 }
